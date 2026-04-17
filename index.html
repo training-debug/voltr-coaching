@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>VOLTR – Coaching Anfrage</title>
+<meta name="theme-color" content="#060606">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Outfit',sans-serif;background:#060606;color:#e0e0e0;
+  min-height:100dvh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:24px 20px;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{
+  width:100%;max-width:440px;
+  animation:up .6s ease both;
+}
+
+/* Logo */
+.logo{
+  font-size:13px;font-weight:200;letter-spacing:8px;
+  color:#444;text-align:center;margin-bottom:8px;
+}
+.sub{
+  font-size:10px;font-weight:300;letter-spacing:3px;
+  color:#333;text-align:center;margin-bottom:40px;
+}
+
+/* Section title */
+.title{
+  font-size:28px;font-weight:200;letter-spacing:2px;
+  color:#e0e0e0;margin-bottom:6px;
+}
+.desc{
+  font-size:13px;font-weight:200;letter-spacing:1px;
+  color:#666;margin-bottom:32px;line-height:1.6;
+}
+
+/* Fields */
+.field{margin-bottom:20px}
+.field label{
+  display:block;font-size:9px;font-weight:400;
+  letter-spacing:3px;color:#555;text-transform:uppercase;
+  margin-bottom:6px;
+}
+.field input,.field textarea,.field select{
+  width:100%;background:#0c0c0c;
+  border:1px solid #1a1a1a;color:#ccc;
+  font-family:'Outfit',sans-serif;font-size:14px;font-weight:200;
+  padding:12px 14px;border-radius:6px;outline:none;
+  transition:border-color .2s;
+  -webkit-appearance:none;appearance:none;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  border-color:#444;
+}
+.field input::placeholder,.field textarea::placeholder{
+  color:#333;font-weight:200;
+}
+.field textarea{
+  resize:vertical;min-height:100px;line-height:1.5;
+}
+.field .sel-w{position:relative}
+.field .sel-w::after{
+  content:'›';position:absolute;right:14px;top:50%;
+  transform:translateY(-50%) rotate(90deg);
+  color:#333;font-size:14px;pointer-events:none;
+}
+
+/* Row */
+.row{display:flex;gap:12px}
+.row .field{flex:1}
+
+/* Submit */
+.btn{
+  width:100%;padding:14px;margin-top:8px;
+  background:#fff;color:#060606;border:none;border-radius:6px;
+  font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:4px;text-transform:uppercase;
+  cursor:pointer;transition:all .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:active{background:#ddd;transform:scale(.98)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* Privacy */
+.privacy{
+  font-size:10px;font-weight:200;color:#333;
+  text-align:center;margin-top:16px;letter-spacing:1px;
+  line-height:1.5;
+}
+
+/* Success */
+.success{
+  text-align:center;display:none;
+  animation:up .5s ease both;
+}
+.success .check{
+  width:64px;height:64px;border:1px solid #333;
+  border-radius:50%;display:flex;align-items:center;
+  justify-content:center;margin:0 auto 24px;
+}
+.success .check svg{stroke:#888;width:28px;height:28px}
+.success h2{
+  font-size:24px;font-weight:200;letter-spacing:2px;
+  color:#e0e0e0;margin-bottom:10px;
+}
+.success p{
+  font-size:13px;font-weight:200;color:#666;
+  line-height:1.6;letter-spacing:1px;
+}
+
+/* Footer */
+.foot{
+  font-size:10px;font-weight:200;letter-spacing:4px;
+  color:#222;text-align:center;margin-top:48px;
+}
+
+@keyframes up{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="logo">VOLTR</div>
+  <div class="sub">1 : 1  O N L I N E  C O A C H I N G</div>
+
+  <!-- FORM -->
+  <div id="formWrap">
+    <div class="title">Apply for Coaching</div>
+    <div class="desc">
+      Individuelles Training, auf dich abgestimmt. Füll das Formular aus und ich melde mich innerhalb von 24h bei dir.
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Vorname</label>
+        <input type="text" id="fname" placeholder="Max" required>
+      </div>
+      <div class="field">
+        <label>Nachname</label>
+        <input type="text" id="lname" placeholder="Mustermann">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="max@email.com" required>
+    </div>
+
+    <div class="field">
+      <label>Instagram (optional)</label>
+      <input type="text" id="insta" placeholder="@deinname">
+    </div>
+
+    <div class="field">
+      <label>Was ist dein Ziel?</label>
+      <div class="sel-w">
+        <select id="goal">
+          <option value="" disabled selected>Wähle aus</option>
+          <option>Muskelaufbau</option>
+          <option>Abnehmen / Recomp</option>
+          <option>Stärker werden</option>
+          <option>Gesundheit & Beweglichkeit</option>
+          <option>Comeback nach Verletzung / Pause</option>
+          <option>Allgemeine Fitness</option>
+          <option>Anderes</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Trainingserfahrung</label>
+      <div class="sel-w">
+        <select id="exp">
+          <option value="" disabled selected>Wähle aus</option>
+          <option>Anfänger (< 1 Jahr)</option>
+          <option>Fortgeschritten (1–3 Jahre)</option>
+          <option>Erfahren (3+ Jahre)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Erzähl mir mehr über dich (optional)</label>
+      <textarea id="msg" placeholder="Aktuelle Situation, Verletzungen, was du dir vom Coaching erwartest..."></textarea>
+    </div>
+
+    <button class="btn" id="submitBtn" onclick="send()">Anfrage senden</button>
+
+    <div class="privacy">
+      Deine Daten werden nur für die Coaching-Anfrage verwendet und nicht an Dritte weitergegeben.
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success" id="successWrap">
+    <div class="check">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+    <h2>Anfrage gesendet</h2>
+    <p>Danke für dein Interesse. Ich melde mich innerhalb von 24 Stunden bei dir.</p>
+  </div>
+
+  <div class="foot">VOLTR</div>
+</div>
+
+<script>
+function send(){
+  const fname=document.getElementById('fname').value.trim();
+  const lname=document.getElementById('lname').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const insta=document.getElementById('insta').value.trim();
+  const goal=document.getElementById('goal').value;
+  const exp=document.getElementById('exp').value;
+  const msg=document.getElementById('msg').value.trim();
+
+  if(!fname||!email){
+    // Highlight empty required fields
+    if(!fname)document.getElementById('fname').style.borderColor='#553333';
+    if(!email)document.getElementById('email').style.borderColor='#553333';
+    return;
+  }
+
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;
+  btn.textContent='Sende...';
+
+  const name=lname?`${fname} ${lname}`:fname;
+
+  const lines=[
+    `Name: ${name}`,
+    `Email: ${email}`,
+    insta?`Instagram: ${insta}`:'',
+    goal?`Ziel: ${goal}`:'',
+    exp?`Erfahrung: ${exp}`:'',
+    msg?`\nNachricht:\n${msg}`:''
+  ].filter(Boolean).join('\n');
+
+  const fd=new FormData();
+  fd.append('access_key','958588f8-74e8-4520-876e-5ba8e74af84e');
+  fd.append('subject','Neue Coaching-Anfrage — VOLTR');
+  fd.append('from_name','VOLTR Coaching');
+  fd.append('name',name);
+  fd.append('email',email);
+  fd.append('message',lines);
+
+  fetch('https://api.web3forms.com/submit',{method:'POST',body:fd})
+    .then(r=>r.json())
+    .then(d=>{
+      if(d.success){
+        document.getElementById('formWrap').style.display='none';
+        document.getElementById('successWrap').style.display='block';
+      } else {
+        btn.disabled=false;
+        btn.textContent='Nochmal versuchen';
+      }
+    })
+    .catch(()=>{
+      btn.disabled=false;
+      btn.textContent='Nochmal versuchen';
+    });
+}
+</script>
+</body>
+</html>
